@@ -6,5 +6,11 @@ class User < ApplicationRecord
         primary_key: :id,
         class_name: 'ArtWork'
      })
+
+     has_many(:comments,{
+        foreign_key: :user_id,
+        primary_key: :id,
+        class_name: 'Comment'
+    })
 end
   

@@ -16,6 +16,13 @@ class ArtWork < ApplicationRecord
         class_name: 'ArtWorkShare'
     })
 
+    has_many(:comments,{
+        foreign_key: :artwork_id,
+        primary_key: :id,
+        class_name: 'Comment',
+        # dependent: :destroy
+    })
+
     has_many :shared_viewers, through: :shared_arts, source: :viewer
 
 
