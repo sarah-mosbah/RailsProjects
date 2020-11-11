@@ -1,0 +1,21 @@
+<h1>Rent Cat! </h1>
+
+
+
+<form action='<%=cat_rentals_path%>' method='post'>
+
+<select name='cat_rental[cat_id]' >
+<option selected disabled>Choose Cat</option>
+<%@cats.each do|cat|%>
+   <option value='<%= cat.id%>'> <%= cat.name%>    </option>
+<%end%>
+<br/>
+
+<input type="date" name="cat_rental[start_date]" value='<%=@cat_rental.start_date%>'>
+<input type="date" name="cat_rental[end_date]" value='<%=@cat_rental.end_date%>'>
+<br/>
+
+<input type="submit" value="Create">
+</select>
+
+</form>
