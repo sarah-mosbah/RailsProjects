@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
         redirect_to new_session_url if current_user.nil? 
     end
 
+    def logged_in?
+        session[:session_token].nil?
+    end
+
     def logout!
 
         session[:session_token]=nil
