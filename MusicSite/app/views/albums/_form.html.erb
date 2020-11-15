@@ -1,0 +1,59 @@
+<%action_method= album.persisted? ? "PUT": "POST" %>
+<% action_url= album.persisted? ? album_path(album): albums_path %>
+<% button_text = album.persisted? ? "Update Album!" : "Create Album!" %>
+
+
+
+<% if flash[:errors] %>
+<ul>
+  <% flash[:errors].each do |err| %>
+  <li> <%= err%> </li>
+  <% end %>
+  </ul>
+<% end %>
+
+<form action="<%= action_url%>" method="post" >
+
+   <input type="hidden" name="_method" value="<%= action_url%>">
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+ <p>
+    <label for='album-title'>Title</label>
+    <input id='album-title' type="text" name="album[title]" value="<%= album.title %>">
+  </p>
+
+   <p>
+    <label for='album-band'>Band</label>
+    <select id='album-band' type="text" name="album[band_id]" >
+  
+    <% Band.all.each do |item| %>
+      <option value="<%= item.id%>"
+       <%= item.id== band.id ? "selected": ""%>
+      
+      > <%= item.name%></option>
+    <% end %>
+
+    </select>
+  </p>
+  <p>
+   <label for='album-year'>Year</label>
+   <input type="date" name="album[year]"  value="<%=album.year%>">
+
+  </p>
+  <p>
+    <label for="album_live_t">Live</label>
+    <input
+      type="radio"
+      name="album[live]"
+      value="t"
+      id="album_live_t"
+      <%= "checked" if album.live %>>
+    <label for="album_live_f">Studio</label>
+    <input
+      type="radio"
+      name="album[live]"
+      value="f"
+      id="album_live_f"
+      <%= "checked" if !album.live %>>
+  </p>
+<input type="Submit" value="<%=button_text%>">
+</form>
