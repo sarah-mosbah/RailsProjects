@@ -1,0 +1,24 @@
+<% action_name = band.persisted? ? band_url(band) : bands_url %>
+<% method_name = band.persisted? ? "PUT" : "POST"%>
+<% btn_name = band.persisted? ? "Update" : "New"%>
+
+
+
+<% if flash[:errors] %>
+<ul>
+  <% flash[:errors].each do |err| %>
+  <li> <%= err%> </li>
+  <% end %>
+  </ul>
+<% end %>
+
+<form action=<%= action_name%> method="POST">
+
+<input type="hidden" value="<%= method_name%>" name="_method">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<label>Album Name </label>
+
+<input type="text" value="<%= band.name%>" name="band[name]">
+
+<input type="submit" value="<%=btn_name%> Band">
+</form>
