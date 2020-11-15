@@ -1,7 +1,13 @@
 <h1>All Bands</h1>
 
+<h3><%= link_to "Create Bands", new_band_url%></h3>
 <ul>
 <% @bands.each do |item| %>
- <li>  <%= item.name %>  </li>
+ <li>  <%= item.name %>
+      <span><%= button_to "Delete",item, :method => :delete %>
+      <%= link_to "Update",  edit_band_path(item)%>
+      </span>
+   </li>
+
 <% end %>
 </ul>
