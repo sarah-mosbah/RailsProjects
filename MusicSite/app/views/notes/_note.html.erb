@@ -1,0 +1,19 @@
+
+
+<ul>
+<% notes.each do |item| %>
+  <li>
+  <%= item.content %> by <%= item.user.email%>
+
+<% if current_user.id==item.user_id %>
+   <form action ="<%=note_path(item)%>" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+      <input type="submit" value="Delete Note">
+  </form>
+<% end %> 
+ 
+   </li>
+<% end %>
+
+</ul>

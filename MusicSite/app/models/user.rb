@@ -7,6 +7,9 @@ class User < ApplicationRecord
     validate :is_email_valid?
 
     
+
+    has_many :notes
+
     after_initialize :ensure_session_token
 
     REGEX_PATTERN = /^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/ 
