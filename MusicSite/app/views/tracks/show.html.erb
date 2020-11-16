@@ -5,6 +5,7 @@
 
 <h1><%= @track.name%> </h1>
 
+<%= lyrics(@track.lyrics)%>
 
 <%= render "notes/note", notes: @notes %>
 <ul>

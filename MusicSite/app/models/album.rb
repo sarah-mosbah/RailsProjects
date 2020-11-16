@@ -8,4 +8,6 @@ class Album < ApplicationRecord
         class_name: 'Band',
         dependent: :destroy
     })
+
+    has_many :tracks
 end
