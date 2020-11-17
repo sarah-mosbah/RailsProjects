@@ -1,7 +1,17 @@
-<h1>This album <%= @album.title%> artist <%= @band.name%></h1> 
+<h2 class="page-header"> <%= @album.title%> </h1> 
 
 <h2> Tracks </h2>
 
 <% @album.tracks.each do |track| %>
      <p><%= track.name%> </p>
 <% end %>
+
+
+
+<ul class="page-links">
+
+<li><a href="<%= new_album_track_path(@album)%>" class='button'><p>New Track</p></a></li>
+<li><a href="<%= edit_album_path(@album)%>"  class='button'><p>Edit Album</p></a></li>
+<li><a href=<%="/albums/#{@album.id}"%> method="Delete"  class='button'><p>Destroy Album</p></a></li>
+<li><a href="<%=band_path(@album.band)%>"  class='button'><p>Back to <%=@album.band.name%></p></a></li>
+</ul>

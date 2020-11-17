@@ -1,13 +1,10 @@
-<h1>All Bands</h1>
+<h2 class="page-header"> Bands</h2>
 
-<h3><%= link_to "Create Bands", new_band_url%></h3>
-<ul>
+
+<ul class="main-list">
 <% @bands.each do |item| %>
- <li>  <%= item.name %>
-      <span><%= button_to "Delete",item, :method => :delete %>
-      <%= link_to "Update",  edit_band_path(item)%>
-      </span>
-   </li>
+  <li><a href="<%= band_path(item)%>"><p><%= item.name%></p></a></li>
 
 <% end %>
 </ul>
+<h3><%= link_to "Create Bands", new_band_url, class:'button'%></h3>

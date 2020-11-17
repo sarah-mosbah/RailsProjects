@@ -1,31 +1,31 @@
-<h1>Create User </h1>
+<h2 class="page-header">Create User </h2>
 
 
-<% if flash[:errors]%>
+<% if flash.now[:errors]%>
 
-<div> 
+<p> 
 <ul>
-<% flash[:errors].each do |item| %>
+<% flash.now[:errors].each do |item| %>
   <li><%=item%></li>
 <% end %>
 
 </ul>
-</div>
+</p>
 
 <% end %>
 
-<form action="<%= users_path%>" method="post">
+<form class="form" action="<%= users_path%>" method="post">
+
 <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
-<label > Email </label>
+<p><label > Email </label>
 
-<input type="email" name='user[email]' value="<%= @user.email%>"/>
+<input type="email" name='user[email]' value="<%= @user.email%>"/><p>
 
-<br/>
-
-<label > Password </label>
+<p><label > Password </label>
 
 <input type="password" name='user[password]'/>
+</p>
 
-  <input type="submit" value="Sign Up">
+  <input type="submit" value="Sign Up" class="button">
 
 </form>

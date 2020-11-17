@@ -4,7 +4,8 @@ class SessionsController < ApplicationController
 
         user= User.find_by_credentials(params[:user][:email],params[:user][:password])
         if user.nil?
-            render json: 'Credentials were wrong'
+          flash[:invalid]="Invalid Credentials"
+          redirect_to new_session_path
           else
             login(user)
 

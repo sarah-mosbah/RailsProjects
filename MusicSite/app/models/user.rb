@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-    validates :email, presence: true
+    validates :email, presence: true, uniqueness: true
     validates :session_token, presence: true
     validates :password_digest, presence: { message: 'Password can\'t be blank' }
     validates :password, length: { minimum: 6, allow_nil: true }
@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
 
     attr_reader :password
+
     def password=(password)
         @password= password
         self.password_digest= BCrypt::Password.create(password)
