@@ -1,3 +1,2 @@
 # README
-
-![Alt text](/MusicSite/screenshots/login.png?raw=true "Optional Title")
+![Alt text](relative/path/to/login.png?raw=true "Title")
