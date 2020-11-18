@@ -1,3 +1,3 @@
 # README
 
-![Alt text](/screenshots/Screenshot(23).png?raw=true "Optional Title")
+![Alt text](/screenshots/login.png?raw=true "Optional Title")
