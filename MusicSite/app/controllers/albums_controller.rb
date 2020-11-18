@@ -20,8 +20,9 @@ class AlbumsController < ApplicationController
     end
 
     def edit
-        @band=Band.find(params[:band_id])
+       
         @album=Album.find(params[:id])
+        @band=@album.band
         render :edit
     end
 
@@ -32,7 +33,7 @@ class AlbumsController < ApplicationController
           redirect_to album_url(@album)
         else
           flash.now[:errors] = @album.errors.full_messages
-          render :edit
+          redirect_to edit_album_path(@album)
         end
       end
 

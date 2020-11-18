@@ -1,9 +1,9 @@
-<h2 class="page-header">Sign In</h2>
+<h2 class="sub-header">Sign In</h2>
 
 
 <p><%= flash[:invalid]? flash[:invalid]:"" %></p>
 
-<a class='button' href=<%= new_user_path%>>Sign Up</a>
+<p><a class='button' href=<%= new_user_path%>>Sign Up</a></p>
 
 
 <form class="form" action="/session" method="POST">
@@ -15,12 +15,11 @@
   <label for="user_email">Email</label>
   <input type="text" name="user[email]" id="user_email">
 </p>
-  <br />
+ 
 <p>
   <label for="user_password">Password</label>
   <input type="password" name="user[password]" id="user_password">
 <p>
-  <br />
 
-  <input type="submit" class="button" value="Log in!">
+<p>  <input type="submit" class="button" value="Log in!"></p>
 </form>

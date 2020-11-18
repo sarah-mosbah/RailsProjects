@@ -12,7 +12,7 @@
   </ul>
 <% end %>
 
-<form action=<%= action_name%> method="POST">
+<form class="form" action=<%= action_name%> method="POST">
 
 <input type="hidden" value="<%= method_name%>" name="_method">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -20,5 +20,5 @@
 
 <input type="text" value="<%= band.name%>" name="band[name]">
 
-<input type="submit" value="<%=btn_name%> Band">
+<input type="submit" class="button" value="<%=btn_name%> Band">
 </form>

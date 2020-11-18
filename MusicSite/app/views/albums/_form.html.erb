@@ -14,7 +14,7 @@
 
 <form class='form' action="<%= action_url%>" method="post" >
 
-   <input type="hidden" name="_method" value="<%= action_url%>">
+   <input type="hidden" name="_method" value="<%= action_method%>">
    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
  <p>
     <label for='album-title'>Title</label>
@@ -46,7 +46,7 @@
       name="album[live]"
       value="t"
       id="album_live_t"
-      <%= "checked" if album.live %>>
+      <%= "checked" if album.live  %>>
     <label for="album_live_f">Studio</label>
     <input
       type="radio"
@@ -55,5 +55,5 @@
       id="album_live_f"
       <%= "checked" if !album.live %>>
   </p>
-<input type="Submit" value="<%=button_text%>">
+<input type="Submit" value="<%=button_text%>" class="button">
 </form>

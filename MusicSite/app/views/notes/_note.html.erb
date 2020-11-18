@@ -1,19 +1,19 @@
 
-
-<ul>
+<h2 class="sub-header"> Notes </h2>
+<div class="note-items">
 <% notes.each do |item| %>
-  <li>
-  <%= item.content %> by <%= item.user.email%>
+<div class="note-items-info">
 
+  <p><%= item.content %> by <%= item.user.email%> </p>
 <% if current_user.id==item.user_id %>
-   <form action ="<%=note_path(item)%>" method="post">
+   <form  action ="<%=note_path(item)%>" method="post">
     <input type="hidden" name="_method" value="DELETE">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
-      <input type="submit" value="Delete Note">
+      <input type="submit" value="Delete Note" class="button">
   </form>
+
 <% end %> 
- 
-   </li>
+</div>
 <% end %>
 
-</ul>
+</div>

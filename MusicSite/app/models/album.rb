@@ -1,7 +1,7 @@
 class Album < ApplicationRecord
 
     validates :year, :title, :live, presence: true
-
+     
     belongs_to(:band, {
         primary_key: :id,
         foreign_key: :band_id,
