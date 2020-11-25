@@ -1,13 +1,15 @@
 class SessionsController < ApplicationController
   skip_before_action :authorized, only: [:new, :login]
 
-  before_action :already_signed
+  before_action :already_signed, only: [:new, :login]
   def new
     render :new
   end
 
-  def create
-  end
+  def logout
+    session[:id]=nil
+    redirect_to new_sessions_path
+end
 
   def login
     @user= User.find_by(username: params[:user][:username])

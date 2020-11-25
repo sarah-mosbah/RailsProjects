@@ -10,6 +10,19 @@
   </head>
 
   <body>
+  <div>
+  <% if logged_in? %>
+    <header>
+      <nav>
+          <ul>
+          <li class='logo'><h3>RedditClone</h3></li>
+          <li> <h4> Welcome <%= current_user.username %> </h4></li>
+          <li><a href="/sessions/logout">Logout </a></li>
+          </ul>
+      </nav>
+    </header>
+    </div>
+  <% end %>
     <%= yield %>
   </body>
 </html>
