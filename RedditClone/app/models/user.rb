@@ -17,4 +17,12 @@ class User < ApplicationRecord
         @session_token ||= SecureRandom::urlsafe_base64(16)
     end
 
+
+    
+    has_many(:subs,{
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: 'Sub',
+    })
+
 end

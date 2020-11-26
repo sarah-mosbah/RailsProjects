@@ -1,0 +1,31 @@
+<% action_method= sub.persisted? ? "PUT": "POST"%>
+<% action_url= sub.persisted? ? sub_path(sub): subs_path%>
+<% btn_text= sub.persisted? ? "Update!": "Create!"%>
+
+<% if flash[:errors]%>
+<ul>
+<%  flash[:errors].each do |error| %>
+<li>  <%= error%> </li>
+<% end %>
+<ul>
+<%end%>
+<form  method="POST" action="<%=action_url%>">
+
+<input type="hidden" name="_method" value="<%= action_method%>">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+
+<p>
+
+<label> Title </label>
+<input type="text" name="sub[title]" value="<%= sub.title %>"/>
+</p>
+
+<p>
+
+<label> Description </label>
+<textarea name="sub[description]"><%= sub.description %>
+</textarea>
+</p>
+<input type="submit" value="<%= btn_text%>">
+
+</form>

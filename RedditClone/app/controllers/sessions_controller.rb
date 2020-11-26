@@ -15,9 +15,10 @@ end
     @user= User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
       session[:id]=@user.id
-      redirect_to new_user_path
+      redirect_to '/'
     else
-          puts "hello world"
+      flash[:err]="Invalid Username or Password"
+        redirect_to new_sessions_path
     end
 
   end

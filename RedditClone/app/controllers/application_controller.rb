@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
     helper_method :logged_in?
 
     def current_user
+
         if session[:id]
+            puts "fndfnf"
         User.find(session[:id])
         else
             nil
@@ -18,7 +20,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authorized
-     redirect_to new_session_path unless logged_in?
+     redirect_to new_sessions_path unless logged_in?
     end
 
     def already_signed

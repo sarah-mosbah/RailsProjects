@@ -1,0 +1,9 @@
+<h1>All Subs</h1>
+-
+<%= link_to 'Create Sub-Forum', new_sub_path%>
+
+<ul>
+<%  @subs.each do |sub| %>
+<li><a href="<%=sub_path(sub)%>">  <%= sub.title%> </li>
+<% end %>
+<ul>

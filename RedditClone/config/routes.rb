@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  root to: 'subs#index'
   resources :users,  only: [:new, :create]
+  resources :subs 
   get 'sessions/new', as: :new_sessions
   post 'sessions/create' 
   post 'sessions/login'

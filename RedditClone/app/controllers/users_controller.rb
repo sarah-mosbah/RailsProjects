@@ -12,8 +12,8 @@ class UsersController < ApplicationController
         @user=User.create(user_params)
 
         if @user.save
-         session[:_token]=@user.id
-          redirect_to new_user_path
+         session[:id]=@user.id
+          redirect_to '/'
         else
             flash[:errors]= @user.errors
             redirect_to new_user_path
