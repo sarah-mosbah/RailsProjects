@@ -1,0 +1,45 @@
+<% action_method= post.persisted? ? "PUT": "POST"%>
+<% action_url= post.persisted? ? post_path(post): posts_path%>
+
+
+<% if flash[:errors]%>
+<ul>
+<%  flash[:errors].each do |error| %>
+<li>  <%= error%> </li>
+<% end %>
+<ul>
+<%end%>
+<form  method="POST" action="<%=action_url%>">
+
+<input type="hidden" name="_method" value="<%= action_method%>">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+
+<p>
+<label> Title </label>
+<input name="post[title]" value="<%= post.title %>" />
+</p>
+
+<p>
+<label> url </label>
+<input name="post[url]" value="<%= post.url %>" />
+
+</p>
+
+<p>
+<label> Content </label>
+<textarea name="post[content]" ><%= post.content %> </textarea>
+</p>
+ <input type="hidden" name="post[sub_ids][]" value="">
+ <% Sub.all.each do |sub| %>
+    <label><%= sub.title %>
+      <input
+        type="checkbox"
+        value="<%= sub.id %>"
+        name="post[sub_ids][]"
+       <%= "checked" if post.sub_ids.include?(sub.id)%>
+      />
+    </label>
+  <% end %>
+<input type="submit" value="Post">
+
+</form>

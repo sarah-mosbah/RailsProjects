@@ -22,7 +22,14 @@ class User < ApplicationRecord
     has_many(:subs,{
         primary_key: :id,
         foreign_key: :user_id,
-        class_name: 'Sub',
+        class_name: 'Sub'
     })
+
+    has_many(:posts,{
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: 'Post'
+    })
+    
 
 end

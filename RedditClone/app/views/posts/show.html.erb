@@ -1,0 +1,12 @@
+<h1><%= @post.title%></h1>
+<p><%= @post.content%></p>
+<p><%= @post.author.username%> </p>
+
+<% @post.subs.each do |sub| %>
+  <%= sub.title%>
+<% end %>
+
+
+<% if current_user.id== @post.author.id%>
+  <%link_to 'Edit', edit_post_path(@post)%>
+<% end %>
