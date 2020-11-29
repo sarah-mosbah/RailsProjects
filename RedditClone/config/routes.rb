@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'comments/create', as: :comments
   get 'comments/edit'
   put 'comments/update'
+  get  'comments/:id', to: "comments#show", as: :show_comment
   delete 'comments/:id', to: 'comments#destroy'
   root to: 'subs#index'
   resources :users,  only: [:new, :create]

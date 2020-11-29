@@ -5,7 +5,9 @@
 
 <input type="hidden" name="_method" value="<%= action_method%>">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+
 <input type="hidden" name="comment[post_id]" value="<%= post.id%>">
+<input type="hidden" name="comment[parent_comment_id]" value="<%= comment.parent_comment_id%>">
 
 <p>
 <label> Comment </label>

@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post=current_user.posts
     @post= Post.new(post_params)
     @post.author_id=current_user.id
     if @post.save
@@ -20,6 +19,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment= Comment.new
+    @comments=@post.comments.where(parent_comment_id: nil)
   end
 
   def edit

@@ -1,0 +1,14 @@
+
+
+<h2><%= @comment.content %></h2>
+
+
+<p>
+<ul>
+<% @comment.child_comments.each do |comment| %>
+  <li><%= comment.content%> by <%= comment.author.username%></li>
+<% end %>
+</ul>
+</p>
+
+<%= render '/comments/forms', comment: @new_comment, post: @comment.post%>
