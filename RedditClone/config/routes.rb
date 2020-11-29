@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
 
+  get 'comments/new' 
+  post 'comments/create', as: :comments
+  get 'comments/edit'
+  put 'comments/update'
+  delete 'comments/:id', to: 'comments#destroy'
   root to: 'subs#index'
   resources :users,  only: [:new, :create]
   resources :subs 

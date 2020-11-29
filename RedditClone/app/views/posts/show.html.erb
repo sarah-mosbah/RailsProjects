@@ -2,11 +2,29 @@
 <p><%= @post.content%></p>
 <p><%= @post.author.username%> </p>
 
+<div>
 <% @post.subs.each do |sub| %>
   <%= sub.title%>
 <% end %>
-
+</div>
 
 <% if current_user.id== @post.author.id%>
   <%link_to 'Edit', edit_post_path(@post)%>
 <% end %>
+
+
+<h2>Comments </h2>
+<div>
+<% @post.comments.each do |comment| %>
+  <p><%= comment.content%> by <%= comment.author.username%> </p>
+
+  <%if current_user.id== comment.author.id%>
+  <a href=<%="/comments/#{comment.id}"%> data-method="delete" >Delete</a>
+   <%# <%= link_to 'Delete Comment', controller:"comments", action: "destroy", method: "delete"%>  
+  <%end%>
+<% end %>
+
+<%= render '/comments/forms', comment: @comment, post: @post%> 
+
+
+</div>
